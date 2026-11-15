@@ -1,4 +1,19 @@
+import { useEffect } from "react";
+import { locationLookup } from "./services/locationLookup";
+
 function App() {
+  useEffect(() => {
+    const testGeoCoding = async () => {
+      try {
+        const locations = await locationLookup.searchLocations("Vancouver");
+
+        console.log("Geocoding results:", locations);
+      } catch (error) {
+        console.log("Geocoding test failed: ", error);
+      }
+    };
+    testGeoCoding();
+  }, []);
   return (
     <main className="flex min-h-screen items-center justify-center bg-slate-950">
       <div className="text-center">

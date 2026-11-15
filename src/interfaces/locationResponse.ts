@@ -7,3 +7,7 @@ export interface GeocodingResult {
   admin1?: string;
   timezone: string;
 }
+
+export interface GeocodingResponse {
+  results?: GeocodingResult[];
+}

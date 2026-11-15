@@ -1,13 +1,13 @@
 import type { Location } from "../interfaces/location";
-import type { GeocodingResult } from "../interfaces/locationResponse";
+import type { GeocodingResponse } from "../interfaces/locationResponse";
 
 // Open-Meteo Geocoding API endpoint (free, no API key required)
 const GEOCODING_API_URL = "https://geocoding-api.open-meteo.com/v1/search";
 
-export const geocodingService = {
+export const locationLookup = {
   //    Search for locations by query string (e.g., city name)
   async searchLocations(query: string): Promise<Location[]> {
-    if (!query || query.trim().length < 2) {
+    if (!query.trim() || query.trim().length < 2) {
       return [];
     }
 
@@ -20,7 +20,7 @@ export const geocodingService = {
         throw new Error(`Geocoding failed with status: ${response.status}`);
       }
 
-      const data = await response.json();
+      const data: GeocodingResponse = await response.json();
 
       // If no results are found, return an empty array
       if (!data.results || !Array.isArray(data.results)) {
@@ -28,7 +28,7 @@ export const geocodingService = {
       }
 
       // Map raw API response items to your clean Location interface
-      return data.results.map((item: GeocodingResult) => ({
+      return data.results.map((item) => ({
         id: item.id,
         name: item.name,
         admin1: item.admin1,
