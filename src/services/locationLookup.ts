@@ -1,4 +1,5 @@
 import type { Location } from "../interfaces/location";
+import type { GeocodingResult } from "../interfaces/locationResponse";
 
 // Open-Meteo Geocoding API endpoint (free, no API key required)
 const GEOCODING_API_URL = "https://geocoding-api.open-meteo.com/v1/search";
@@ -27,25 +28,15 @@ export const geocodingService = {
       }
 
       // Map raw API response items to your clean Location interface
-      return data.results.map(
-        (item: {
-          id: number;
-          name: string;
-          admin1?: string;
-          country?: string;
-          latitude: number;
-          longitude: number;
-          timezone?: string;
-        }) => ({
-          id: item.id,
-          name: item.name,
-          admin1: item.admin1,
-          country: item.country ?? "",
-          latitude: item.latitude,
-          longitude: item.longitude,
-          timezone: item.timezone ?? "UTC",
-        }),
-      );
+      return data.results.map((item: GeocodingResult) => ({
+        id: item.id,
+        name: item.name,
+        admin1: item.admin1,
+        country: item.country,
+        latitude: item.latitude,
+        longitude: item.longitude,
+        timezone: item.timezone,
+      }));
     } catch (error) {
       console.error("Error fetching location suggestions:", error);
       throw error;
