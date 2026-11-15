@@ -1,75 +1,97 @@
-# React + TypeScript + Vite
+# SkyOsci
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Real-Time Weather Intelligence**
 
-Currently, two official plugins are available:
+SkyOsci is a location-aware weather application designed to make weather information accessible, understandable, and useful. It integrates live weather data with location-based search and geolocation to provide users with current weather conditions and upcoming forecasts.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Project Overview
 
-## React Compiler
+The goal of SkyOsci is to deliver a responsive and reliable weather experience through a clean frontend architecture and real-time API integration.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Planned Features
 
-## Expanding the ESLint configuration
+- Location search by city, town, postal code, or geographical coordinates.
+- Current weather conditions and atmospheric details.
+- Weather information based on the user's current location.
+- Five-day weather forecasts.
+- Dynamic weather icons and condition descriptions.
+- Loading indicators and graceful error handling.
+- Responsive web interface.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Technology Stack
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- React
+- TypeScript
+- Vite
+- CSS
+- Open-Meteo Weather API
+- Open-Meteo Geocoding API
+- Browser Geolocation API
+- Git and GitHub
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
 
+- Node.js
+- npm
+- Git
+
+### Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/calebtolorunleke/skyosci.git
 ```
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
+Navigate into the project:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+cd skyosci
 ```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Open the local URL provided by Vite in your browser.
+
+## Development
+
+Build the application:
+
+```bash
+npm run build
+```
+
+Run ESLint:
+
+```bash
+npm run lint
+```
+
+## Project Status
+
+**In Development**
+
+SkyOsci is actively being developed, with a focus on API integration, frontend architecture, location-based functionality, and reliable data presentation.
+
+## Author
+
+Caleb Adebayo
+
+- GitHub: [@calebtolorunleke](https://github.com/calebtolorunleke)
+- LinkedIn: [calebtol](https://linkedin.com/in/calebtol)
+
+---
+
+Built with React and TypeScript.
