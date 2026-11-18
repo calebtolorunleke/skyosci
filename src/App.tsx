@@ -49,11 +49,73 @@ function App() {
     }
   };
 
+  const handleUseCurrentLocation = () => {
+    if (!navigator.geolocation) {
+      setError("Geolocation is not supported by your browser.");
+      return;
+    }
+
+    setIsLoading(true);
+    setError(null);
+
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        try {
+          const { latitude, longitude } = position.coords;
+
+          const weatherData = await weatherLookup.getWeather(
+            latitude,
+            longitude,
+          );
+
+          const location: Location = {
+            id: 0,
+            name: "Your Current Location",
+            latitude,
+            longitude,
+            country: "",
+            timezone: "auto",
+          };
+
+          setSelectedLocation(location);
+          setCurrentWeather(weatherData.currentWeather);
+          setForecasts(weatherData.dailyForecast);
+        } catch (error) {
+          setError(
+            error instanceof Error
+              ? error.message
+              : "Unable to retrieve weather for your location.",
+          );
+        } finally {
+          setIsLoading(false);
+        }
+      },
+      (error) => {
+        if (error.code === error.PERMISSION_DENIED) {
+          setError("Location permission denied. Please allow location access.");
+        } else if (error.code === error.TIMEOUT) {
+          setError("Location request timed out. Please try again.");
+        } else {
+          setError("Unable to determine your location. Please try again.");
+        }
+
+        setIsLoading(false);
+      },
+      {
+        enableHighAccuracy: false,
+        timeout: 10000,
+        maximumAge: 300000,
+      },
+    );
+  };
+
   return (
     <main className="min-h-screen bg-[#080F1E] px-4 py-6 sm:px-8 lg:px-12">
       <div className="mx-auto max-w-7xl">
-        <Header onSearch={handleSearch} />
-
+        <Header
+          onSearch={handleSearch}
+          onUseCurrentLocation={handleUseCurrentLocation}
+        />
         {/* Loading message */}
         {isLoading && (
           <p className="mt-8 text-center text-sky-400">

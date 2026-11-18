@@ -27,7 +27,7 @@ function CurrentWeather({
       <div className="relative">
         {/* Location */}
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-sky-300">
-          {city}, {country}
+          {country ? `${city}, ${country}` : city}
         </p>
 
         {/* Weather information */}

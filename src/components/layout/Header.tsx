@@ -3,9 +3,10 @@ import type { Location } from "../../interfaces/location";
 
 interface HeaderProps {
   onSearch: (location: Location) => void;
+  onUseCurrentLocation: () => void;
 }
 
-function Header({ onSearch }: HeaderProps) {
+function Header({ onSearch, onUseCurrentLocation }: HeaderProps) {
   return (
     <header className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
       {/* SkyOsci branding */}
@@ -24,7 +25,17 @@ function Header({ onSearch }: HeaderProps) {
       </div>
 
       {/* Location search component */}
-      <LocationSearch onSearch={onSearch} />
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+        <LocationSearch onSearch={onSearch} />
+
+        <button
+          type="button"
+          onClick={onUseCurrentLocation}
+          className="rounded-xl border border-sky-400/30 bg-sky-400/10 px-4 py-3 text-sm font-medium text-sky-300 transition hover:bg-sky-400/20"
+        >
+          Use my current location
+        </button>
+      </div>
     </header>
   );
 }
