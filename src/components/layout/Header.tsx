@@ -1,7 +1,8 @@
 import LocationSearch from "../location/LocationSearch";
+import type { Location } from "../../interfaces/location";
 
 interface HeaderProps {
-  onSearch: (location: string) => void;
+  onSearch: (location: Location) => void;
 }
 
 function Header({ onSearch }: HeaderProps) {

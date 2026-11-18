@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { locationLookup } from "./services/locationLookup";
 import { weatherLookup } from "./services/weatherLookup";
 import { getWeatherInfo } from "./utils/weatherUtils";
 import type { Location } from "./interfaces/location";
@@ -24,23 +23,12 @@ function App() {
 
   const [error, setError] = useState<string | null>(null);
 
-  const handleSearch = async (query: string) => {
+  const handleSearch = async (location: Location) => {
     setIsLoading(true);
     setError(null);
 
     try {
-      // Search for the city
-      const locations = await locationLookup.searchLocations(query);
-
-      // Check whether any locations were found
-      if (locations.length === 0) {
-        throw new Error("Location not found. Try another city.");
-      }
-
-      // Use the first matching location for now
-      const location = locations[0];
-
-      // Fetch weather using the location coordinates
+      // Fetch weather using the selected location's coordinates
       const weatherData = await weatherLookup.getWeather(
         location.latitude,
         location.longitude,
