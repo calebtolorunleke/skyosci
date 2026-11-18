@@ -2,7 +2,7 @@ import type { CurrentWeather } from "../interfaces/weather";
 import type { DailyForecast } from "../interfaces/forecast";
 import type { WeatherResponse } from "../interfaces/weatherResponse";
 
-const WEATHER_API_URL = "https://api.open-meteo.com/v1/forcast";
+const WEATHER_API_URL = "https://api.open-meteo.com/v1/forecast";
 
 export const weatherLookup = {
   /**
