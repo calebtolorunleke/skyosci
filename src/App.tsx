@@ -8,6 +8,7 @@ import CurrentWeather from "./components/weather/CurrentWeather";
 import WeatherHighlights from "./components/weather/WeatherHighlights";
 import WeatherForecast from "./components/weather/WeatherForecast";
 import Header from "./components/layout/Header";
+import Footer from "./components/layout/Footer";
 
 function App() {
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(
@@ -110,8 +111,8 @@ function App() {
   };
 
   return (
-    <main className="min-h-screen bg-[#080F1E] px-4 py-6 sm:px-8 lg:px-12">
-      <div className="mx-auto max-w-7xl">
+    <main className="flex min-h-screen flex-col bg-[#080F1E] px-4 py-6 sm:px-8 lg:px-12">
+      <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col">
         <Header
           onSearch={handleSearch}
           onUseCurrentLocation={handleUseCurrentLocation}
@@ -122,14 +123,12 @@ function App() {
             Fetching weather data...
           </p>
         )}
-
         {/* Error message */}
         {error && (
           <p className="mt-8 rounded-xl border border-red-400/20 bg-red-400/10 p-4 text-sm text-red-300">
             {error}
           </p>
         )}
-
         {/* Weather dashboard */}
         {currentWeather && selectedLocation && (
           <>
@@ -162,7 +161,6 @@ function App() {
             {forecasts.length > 0 && <WeatherForecast forecasts={forecasts} />}
           </>
         )}
-
         {/* Initial message */}
         {!currentWeather && !isLoading && !error && (
           <p className="mt-16 text-center text-slate-400">
@@ -170,6 +168,7 @@ function App() {
           </p>
         )}
       </div>
+      <Footer />
     </main>
   );
 }
