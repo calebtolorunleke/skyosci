@@ -25,9 +25,8 @@ function Header({ onSearch, onUseCurrentLocation }: HeaderProps) {
       </div>
 
       {/* Location search component */}
-      <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+      <div className="flex flex-col gap-3 sm:flex-row sm:items-stretch ">
         <LocationSearch onSearch={onSearch} />
-
         <button
           type="button"
           onClick={onUseCurrentLocation}

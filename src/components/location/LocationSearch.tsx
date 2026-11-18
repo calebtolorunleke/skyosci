@@ -50,9 +50,9 @@ function LocationSearch({ onSearch }: LocationSearchProps) {
   };
 
   return (
-    <div className="relative ">
+    <div className="relative h-full ">
       <form
-        className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3"
+        className="flex h-full items-center gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3"
         onSubmit={handleSubmit}
       >
         <span className="text-sky-400">⌕</span>

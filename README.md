@@ -2,8 +2,6 @@
 
 [![Production](https://img.shields.io/website?url=https%3A%2F%2Fskyosci.vercel.app&label=Production&logo=vercel)](https://skyosci.vercel.app)
 
-[![Preview Deployments](https://img.shields.io/badge/Preview-Deployments-blue?logo=vercel)](https://vercel.com/caleb-adebayos-projects/skyosci/GDSrFKoN8h1C4gtC5UtQDQQgS3g7)
-
 **Real-Time Weather Intelligence**
 
 SkyOsci is a location-aware weather application designed to make weather information accessible, understandable, and useful. It integrates live weather data with location-based search and geolocation to provide users with current weather conditions and upcoming forecasts.
