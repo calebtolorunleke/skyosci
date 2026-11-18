@@ -8,7 +8,7 @@ function Header({ onSearch }: HeaderProps) {
       {/* SkyOsci branding */}
       <div>
         <div className="flex items-center gap-1">
-          <img src="/public/skyosci.svg" alt="logo" className="h-13 w-13" />
+          <img src="/skyosci.svg" alt="SkyOsci logo" className="h-13 w-13" />{" "}
           <h3 className="text-xl font-bold tracking-tight text-white">
             Sky<span className="text-sky-400">Osci</span>
           </h3>
