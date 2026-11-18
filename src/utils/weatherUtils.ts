@@ -58,3 +58,11 @@ export function getWeatherInfo(weatherCode: number) {
       return { description: "Unknown", icon: "🌡️" };
   }
 }
+
+export function formatForecastDay(date: string): string {
+  const forecastDate = new Date(`${date}T12:00:00`);
+
+  return forecastDate.toLocaleDateString("en-CA", {
+    weekday: "short",
+  });
+}
