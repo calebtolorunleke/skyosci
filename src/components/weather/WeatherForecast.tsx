@@ -1,5 +1,6 @@
 import ForecastCard from "./ForecastCard";
 import type { DailyForecast } from "../../interfaces/forecast";
+import { getWeatherInfo } from "../../utils/weatherUtils";
 
 interface WeatherForecastProps {
   forecasts: DailyForecast[];
@@ -23,7 +24,8 @@ function WeatherForecast({ forecasts }: WeatherForecastProps) {
           <ForecastCard
             key={forecast.date}
             day={forecast.date}
-            weatherIcon="⛅"
+            weatherIcon={getWeatherInfo(forecast.weatherCode).icon}
+            condition={getWeatherInfo(forecast.weatherCode).description}
             temperatureMax={forecast.temperatureMax}
             temperatureMin={forecast.temperatureMin}
           />

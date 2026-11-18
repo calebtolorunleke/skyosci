@@ -1,6 +1,7 @@
 interface ForecastCardProps {
   day: string;
   weatherIcon: string;
+  condition: string;
   temperatureMax: number;
   temperatureMin: number;
 }
@@ -8,6 +9,7 @@ interface ForecastCardProps {
 function ForecastCard({
   day,
   weatherIcon,
+  condition,
   temperatureMax,
   temperatureMin,
 }: ForecastCardProps) {
@@ -20,6 +22,9 @@ function ForecastCard({
       <span className="text-3xl" aria-hidden="true">
         {weatherIcon}
       </span>
+
+      {/* Weather description */}
+      <p className="text-xs text-slate-400">{condition}</p>
 
       {/* Temperature range */}
       <div className="flex items-center gap-3 text-sm">
