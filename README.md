@@ -111,6 +111,10 @@ SkyOsci currently supports live weather data, location search with selectable su
 
 Further improvements may be made as development continues.
 
+## Project Demo
+
+[Watch the SkyOsci Demo](https://drive.google.com/file/d/1KOsoGzaVt10JuxVTQdGdqS-Ccf7s0bbV/view?usp=sharing)
+
 ## Author
 
 Caleb Adebayo
