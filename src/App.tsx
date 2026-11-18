@@ -1,5 +1,6 @@
 import Header from "./components/layout/Header";
 import CurrentWeather from "./components/weather/CurrentWeather";
+import WeatherHighlights from "./components/weather/WeatherHighlights";
 
 function App() {
   return (
@@ -7,7 +8,7 @@ function App() {
       <div className="mx-auto max-w-7xl">
         <Header />
 
-        <section className="mt-10">
+        <section className="mt-10 grid gap-5 lg:grid-cols-[1.5fr_1fr]">
           <CurrentWeather
             city="Vancouver"
             country="Canada"
@@ -17,6 +18,13 @@ function App() {
             temperatureMax={20}
             temperatureMin={13}
             weatherIcon="⛅"
+          />
+
+          <WeatherHighlights
+            feelsLike={17}
+            humidity={65}
+            windSpeed={12}
+            precipitation={0.2}
           />
         </section>
       </div>
