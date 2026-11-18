@@ -8,14 +8,7 @@ import type { DailyForecast } from "./interfaces/forecast";
 import CurrentWeather from "./components/weather/CurrentWeather";
 import WeatherHighlights from "./components/weather/WeatherHighlights";
 import WeatherForecast from "./components/weather/WeatherForecast";
-
-const sampleForecasts: DailyForecast[] = [
-  { date: "Wed", weatherCode: 2, temperatureMax: 19, temperatureMin: 12 },
-  { date: "Thu", weatherCode: 3, temperatureMax: 17, temperatureMin: 11 },
-  { date: "Fri", weatherCode: 0, temperatureMax: 21, temperatureMin: 13 },
-  { date: "Sat", weatherCode: 61, temperatureMax: 16, temperatureMin: 10 },
-  { date: "Sun", weatherCode: 2, temperatureMax: 18, temperatureMin: 12 },
-];
+import Header from "./components/layout/Header";
 
 function App() {
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(
